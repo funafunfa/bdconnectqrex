@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, OneProductActivity.class);
         intent.putExtra("code", editText.getText().toString());
         startActivity(intent);
-        finish();
     }
 
 
