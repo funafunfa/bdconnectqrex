@@ -9,9 +9,7 @@ import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.TAG_SWEET_ID;
-import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.productsList;
-
+import static com.example.dmitriy.bdconnectqrex.ProductCreater.productCreaters;
 
 public class qrActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
 
@@ -24,8 +22,6 @@ public class qrActivity extends AppCompatActivity implements ZXingScannerView.Re
         setContentView(zXingScannerView);
         zXingScannerView.setResultHandler(this);
         zXingScannerView.startCamera();
-        //setContentView(R.layout.activity_qr);
-        //main();
     }
 
     public void onClick(View view) {
@@ -46,22 +42,12 @@ public class qrActivity extends AppCompatActivity implements ZXingScannerView.Re
 
     @Override
     public void handleResult(Result result) {
-        for (int i = 0; i <= productsList.size()-1;i++){
-            if(productsList.get(i).containsValue(result.toString())){
+        for (int i = 0; i <= productCreaters.size()-1;i++){
+            if(productCreaters.get(i).getQr_id().equals(result.toString())){
                 Intent intent = new Intent(qrActivity.this, OneProductActivity.class);
-                intent.putExtra("code", productsList.get(i).get(TAG_SWEET_ID));
+                intent.putExtra("code", productCreaters.get(i).getQr_id());
                 startActivity(intent);
             }
         }
-        /*for (DataBase data_obj : arrayList) {
-            if (result.getText().equals(data_obj.getData_ID())) {
-                Intent intent = new Intent(MainActivity.this, ProdActivity.class);
-                intent.putExtra("ProdId", data_obj.getData_ID());
-                finish();
-                startActivity(intent);
-
-                break;
-            }
-        }*/
     }
 }
