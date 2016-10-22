@@ -65,6 +65,7 @@ public class qrActivity extends AppCompatActivity implements ZXingScannerView.Re
 
     @Override
     public void handleResult(Result result) {
+
         for (int i = 0; i <= productCreaters.size()-1;i++){
             Intent intent = new Intent(qrActivity.this, OneProductActivity.class);
             //intent.putExtra("code", productCreaters.get(i).getQr_id());
@@ -75,8 +76,9 @@ public class qrActivity extends AppCompatActivity implements ZXingScannerView.Re
                 intent.putExtra("code", productCreaters.get(i).getQr_id());
                 //intent.putExtra("net", "local");
                 Log.d("Path", "2a");
-                startActivity(intent);
                 finish();
+                startActivity(intent);
+
             }
             }
         }

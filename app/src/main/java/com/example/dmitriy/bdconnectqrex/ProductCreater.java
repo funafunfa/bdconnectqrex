@@ -6,13 +6,14 @@ import java.util.ArrayList;
 
 
 public class ProductCreater implements Serializable {
-    private String name, description, qr_id;
+    private String name, description, qr_id, picture_url;
     static ArrayList<ProductCreater> productCreaters = new ArrayList<>();
 
-    ProductCreater(String name,String description, String qr_id){
+    ProductCreater(String name,String description, String qr_id, String picture_url){
         this.name = name;
         this.description = description;
         this.qr_id = qr_id;
+        this.picture_url = picture_url;
     }
 
 
@@ -40,5 +41,11 @@ public class ProductCreater implements Serializable {
         this.qr_id = qr_id;
     }
 
+    public String getPicture_url() {
+        return picture_url;
+    }
 
+    public void setPicture_url(String picture_url) {
+        this.picture_url = picture_url;
+    }
 }

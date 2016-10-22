@@ -63,12 +63,17 @@ public class AllProductsActivity extends  ListActivity {
     static final String TAG_NAME = "sweet_name";
     static final String TAG_SWEET_ID = "sweet_id";
     static final String TAG_SWEET_DESCRIPTION = "sweet_description";
+    static final String TAG_URL_IMG = "img_url";
+
+
     //final String FILENAME = "array";
     //final String FILENAME_SECOND = "hashmap";
     //String filePath =  "/data/data/fileName.txt";
     //String filePath2 = "/data/data/fileName2.txt";
     //boolean deleted = false;
     //boolean created = false;
+
+
     JSONArray sweets = null;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_STRING = "string";
@@ -158,10 +163,11 @@ public class AllProductsActivity extends  ListActivity {
                             String sweet_id = c.getString(TAG_SWEET_ID);
                             String name = c.getString(TAG_NAME);
                             String description = c.getString(TAG_SWEET_DESCRIPTION);
+                            String url_img = c.getString(TAG_URL_IMG);
 
                             // creating new HashMap
                             HashMap<String, String> map = new HashMap<>();
-                            productCreaters.add(i, new ProductCreater(name, description, sweet_id));
+                            productCreaters.add(i, new ProductCreater(name, description, sweet_id, url_img));
                             //products_name.add(i,name);
                             // adding each child node to HashMap key => value
                             map.put(TAG_PID, sweet_id);
@@ -210,10 +216,11 @@ public class AllProductsActivity extends  ListActivity {
                             String sweet_id = c.getString(TAG_SWEET_ID);
                             String name = c.getString(TAG_NAME);
                             String description = c.getString(TAG_SWEET_DESCRIPTION);
+                            String url_img = c.getString(TAG_URL_IMG);
 
                             // creating new HashMap
                             HashMap<String, String> map = new HashMap<>();
-                            productCreaters.add(i, new ProductCreater(name, description, sweet_id));
+                            productCreaters.add(i, new ProductCreater(name, description, sweet_id,url_img));
                             //products_name.add(i,name);
                             // adding each child node to HashMap key => value
                             map.put(TAG_PID, sweet_id);
