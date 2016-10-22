@@ -19,13 +19,15 @@ TextView name, description;
         name = (TextView)findViewById(R.id.textName);
         description = (TextView)findViewById(R.id.textDescription);
         String code_exepted = getIntent().getStringExtra("code");
+        //String code_local = getIntent().getStringExtra("net");
+        //getBooleanExtra("net",false);
 
-        for (int i = 0; i <= productCreaters.size()-1;i++){
+            for (int i = 0; i <= productCreaters.size() - 1; i++) {
 
-            if(productCreaters.get(i).getQr_id().equals(code_exepted)){
-                name.setText(productCreaters.get(i).getName());
-                description.setText(productCreaters.get(i).getDescription());
+                if (productCreaters.get(i).getQr_id().equals(code_exepted)) {
+                    name.setText(productCreaters.get(i).getName());
+                    description.setText(productCreaters.get(i).getDescription());
+                }
             }
         }
-    }
 }

@@ -54,7 +54,7 @@ import static com.example.dmitriy.bdconnectqrex.ProductCreater.productCreaters;
 
 public class AllProductsActivity extends  ListActivity {
     private ProgressDialog pDialog;
-    JSONParser jParser = new JSONParser();
+    static JSONParser jParser = new JSONParser();
     static ArrayList<HashMap<String, String>> productsList;
 
     static final String TAG_SUCCESS = "success";
@@ -83,7 +83,6 @@ public class AllProductsActivity extends  ListActivity {
         preference = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         boolean b_IsConnect = isNetworkAvailable();
         new LoadAllProducts().execute();
-
         ListView lv = getListView();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,6 +91,7 @@ public class AllProductsActivity extends  ListActivity {
                 // When clicked, show a toast with the TextView text
                 Intent intent = new Intent(AllProductsActivity.this, OneProductActivity.class);
                 intent.putExtra("code", productCreaters.get(position).getQr_id());
+                intent.putExtra("net", "local");
                 startActivity(intent);
             }
         });

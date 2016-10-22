@@ -15,9 +15,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.APP_PREFERENCES;
 import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.APP_PREFERENCES_STRING;
 import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.TAG_PRODUCTS;
 import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.TAG_SUCCESS;
@@ -28,11 +30,12 @@ import static com.example.dmitriy.bdconnectqrex.AllProductsActivity.preference;
 public class MainActivity extends AppCompatActivity {
     Button btnViewProducts;
     EditText editText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText = (EditText)findViewById(R.id.Code);
+        editText = (EditText) findViewById(R.id.Code);
         btnViewProducts = (Button) findViewById(R.id.btnViewProducts);
 
         btnViewProducts.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +62,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickDB(View view) {
-
-        }
+    public void onClickDB(View view) throws FileNotFoundException {
+        Log.d("pochti_govno", "pochti_jopa");
+        SharedPreferences preferences = getSharedPreferences(APP_PREFERENCES    , 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+        Log.d("govno", "jopa");
     }
+}
